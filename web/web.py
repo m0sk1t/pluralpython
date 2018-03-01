@@ -61,7 +61,7 @@ def get_chart():
         for employee in employees_str.split(','):
             employees.append(employee)
             links.append({'from': boss, 'to': employee})
-    employees = [{'key': employee, 'color': str('#' + employee*3)[:5]} for employee in set(employees)]
+    employees = [{'key': employee, 'color': str('#' + (employee * 3)[:6])} for employee in set(employees)]
 
     return jsonify({
         'links': links,
