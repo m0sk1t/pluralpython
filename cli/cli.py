@@ -50,7 +50,7 @@ def drop(boss_id):
 
 
 def main():
-    print('Empty action')
+    print('Illegal action')
 
 
 endpoint = ''

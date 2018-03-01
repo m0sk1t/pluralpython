@@ -33,3 +33,11 @@ It takes one or more strings of the following shape: "B1,E1,E2,E3,..." where B1 
 For viewing chart, open link below in your browser
 
     http://127.0.0.1:5000/
+
+## Testing
+
+Run
+
+    ./test.sh
+
+to execute test suite

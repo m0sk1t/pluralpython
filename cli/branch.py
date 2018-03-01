@@ -3,18 +3,18 @@ import re
 
 boss_pattern = '(B\d+){1}?'
 employee_pattern = '(E\d+)'
-allowed_symbols_pattern = '[EB\d,]+'
+disallowed_symbols_pattern = '[^EB\d,]'
 
 
 class BranchValidationException(Exception):
     pass
 
 
-def is_branch_have_allowed_symbols(branch):
-    if re.match(allowed_symbols_pattern, branch):
-        return True
-    else:
+def is_branch_have_disallowed_symbols(branch):
+    if re.match(disallowed_symbols_pattern, branch):
         raise BranchValidationException('Branch string contains not allowed symbols')
+    else:
+        return True
 
 
 def is_branch_have_boss(branch):
@@ -50,7 +50,7 @@ def is_branch_have_dupes(branch):
 
 def validate_branch(branch):
     validators = [
-        is_branch_have_allowed_symbols,
+        is_branch_have_disallowed_symbols,
         is_branch_have_boss,
         is_branch_have_single_boss,
         is_branch_have_employees,
