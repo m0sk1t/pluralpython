@@ -18,14 +18,15 @@ To reset whole tree run:
 
     python3 cli/cli.py reset
 
-Run to delete branch with <boss_id> and all its children.
+To delete branch with <boss_id> and all its children run:
 
     python3 cli/cli.py drop <boss_id>
 
-
-Run to add a new record. It takes one or more strings of the following shape: "B1,E1,E2,E3,..." where B1 is boss and E1,... are employees, all just simple strings.
+To add a new record run:
 
     python3 cli/cli.py add "B1,E1,E2,E3" ["B2,E34,E55,E1" ...]
+
+It takes one or more strings of the following shape: "B1,E1,E2,E3,..." where B1 is boss and E1,... are employees, all just simple strings.
 
 ## Web
 
