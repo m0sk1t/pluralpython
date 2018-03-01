@@ -1,0 +1,5 @@
+ALL = 'SELECT * FROM chart'
+EXISTS = 'SELECT * FROM chart WHERE boss=?'
+DELETE_ROW = 'DELETE FROM chart WHERE boss=?'
+INSERT_EMPLOYEES = 'INSERT INTO chart VALUES (?, ?)'
+UPDATE_EMPLOYEES = 'UPDATE chart SET employees=? WHERE boss=?'
