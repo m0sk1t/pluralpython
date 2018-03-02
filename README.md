@@ -2,11 +2,11 @@
 
 Run
 
-    ./install.sh
+    pip3 install -r requirements.txt
 
 to install dependencies, then run
 
-    ./run_server.sh
+    export FLASK_APP=web/web.py; flask run
 
 to start a web-server.
 
@@ -38,6 +38,6 @@ For viewing chart, open link below in your browser
 
 Run
 
-    ./test.sh
+    nosetests3 -v tests/*
 
 to execute test suite

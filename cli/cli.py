@@ -32,7 +32,7 @@ def add(branches):
             boss_id, employees = validate_branch(branch)
             with post_request(endpoint + '/api/orgchart/add', {
                 'boss_id': boss_id,
-                'employees': employees
+                'employees': ','.join(employees)
             }) as response:
                 print(response.read())
         except BranchValidationException as error:

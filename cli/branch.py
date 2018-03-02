@@ -1,42 +1,19 @@
-import re
-
-
-boss_pattern = '(B\d+){1}?'
-employee_pattern = '(E\d+)'
-disallowed_symbols_pattern = '[^EB\d,]'
-
-
 class BranchValidationException(Exception):
     pass
 
 
-def is_branch_have_disallowed_symbols(branch):
-    if re.match(disallowed_symbols_pattern, branch):
-        raise BranchValidationException('Branch string contains not allowed symbols')
-    else:
-        return True
-
-
-def is_branch_have_boss(branch):
-    if re.match(boss_pattern, branch):
+def is_branch_empty(branch):
+    if branch:
         return True
     else:
-        raise BranchValidationException('Branch does not have a boss')
+        raise BranchValidationException('Branch is empty')
 
 
-def is_branch_have_single_boss(branch):
-    if len(re.findall(boss_pattern, branch)) == 1:
+def is_branch_full(branch):
+    if len(branch.split(',')) > 1:
         return True
     else:
-        raise BranchValidationException('Branch have many bosses')
-
-
-def is_branch_have_employees(branch):
-    employees = branch.split(',')[1:]
-    if len(employees) and all([re.match(employee_pattern, employee) for employee in employees]):
-        return True
-    else:
-        raise BranchValidationException('Branch does not contains employees')
+        raise BranchValidationException('Branch does not have any relationship')
 
 
 def is_branch_have_dupes(branch):
@@ -50,15 +27,13 @@ def is_branch_have_dupes(branch):
 
 def validate_branch(branch):
     validators = [
-        is_branch_have_disallowed_symbols,
-        is_branch_have_boss,
-        is_branch_have_single_boss,
-        is_branch_have_employees,
+        is_branch_empty,
+        is_branch_full,
         is_branch_have_dupes
     ]
     try:
         if all([validator for validator in validators if validator(branch)]):
             branch = branch.split(',')
-            return branch[0], ','.join(branch[1:])
+            return branch[0], branch[1:]
     except BranchValidationException as e:
         raise e

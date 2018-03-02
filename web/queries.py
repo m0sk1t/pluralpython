@@ -1,5 +1,8 @@
-ALL = 'SELECT * FROM chart'
-EXISTS = 'SELECT * FROM chart WHERE boss=?'
-DELETE_ROW = 'DELETE FROM chart WHERE boss=?'
-INSERT_EMPLOYEES = 'INSERT INTO chart VALUES (?, ?)'
-UPDATE_EMPLOYEES = 'UPDATE chart SET employees=? WHERE boss=?'
+ALL_LINKS = 'SELECT * FROM links'
+ALL_EMPLOYEES = 'SELECT * FROM employees'
+
+INSERT_LINK = 'INSERT INTO links VALUES (?,?)'
+INSERT_EMPLOYEE = 'INSERT INTO employees VALUES (?)'
+
+DELETE_LINKS = 'DELETE FROM links WHERE boss=?'
+DELETE_EMPLOYEE = 'DELETE FROM employees WHERE employee=?'
